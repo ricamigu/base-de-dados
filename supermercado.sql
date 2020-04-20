@@ -15,14 +15,16 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+USE supermercado;
+
 --
 -- Table structure for table `Cliente`
 --
 
-DROP TABLE IF EXISTS `Cliente`;
+DROP TABLE IF EXISTS `CLIENTE`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Cliente` (
+CREATE TABLE `CLIENTE` (
   `Nome` varchar(45) NOT NULL,
   `Data de Nascimento` date NOT NULL,
   `NumCC` varchar(12) NOT NULL,
@@ -37,7 +39,7 @@ CREATE TABLE `Cliente` (
 -- Dumping data for table `Cliente`
 --
 
-LOCK TABLES `Cliente` WRITE;
+LOCK TABLES `CLIENTE` WRITE;
 /*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -46,16 +48,16 @@ UNLOCK TABLES;
 -- Table structure for table `Fornecedores`
 --
 
-DROP TABLE IF EXISTS `Fornecedores`;
+DROP TABLE IF EXISTS `FORNECEDOR`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Fornecedores` (
+CREATE TABLE `FORNECEDOR` (
   `Nome da Empresa` varchar(45) NOT NULL,
   `Nome do Produto` varchar(45) NOT NULL,
   `Custo` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
   `Comissão` decimal(3,2) NOT NULL,
-  `IdEmpresa` int(11) NOT NULL,
+  `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`IdEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -64,7 +66,7 @@ CREATE TABLE `Fornecedores` (
 -- Dumping data for table `Fornecedores`
 --
 
-LOCK TABLES `Fornecedores` WRITE;
+LOCK TABLES `FORNECEDOR` WRITE;
 /*!40000 ALTER TABLE `Fornecedores` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Fornecedores` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -73,10 +75,10 @@ UNLOCK TABLES;
 -- Table structure for table `Funcionarios`
 --
 
-DROP TABLE IF EXISTS `Funcionarios`;
+DROP TABLE IF EXISTS `FUNCIONARIO`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Funcionarios` (
+CREATE TABLE `FUNCIONARIO` (
   `Nome` varchar(45) NOT NULL,
   `Data de Nascimento` date NOT NULL,
   `NumCC` varchar(12) NOT NULL,
@@ -93,7 +95,7 @@ CREATE TABLE `Funcionarios` (
 -- Dumping data for table `Funcionarios`
 --
 
-LOCK TABLES `Funcionarios` WRITE;
+LOCK TABLES `FUNCIONARIO` WRITE;
 /*!40000 ALTER TABLE `Funcionarios` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -102,13 +104,13 @@ UNLOCK TABLES;
 -- Table structure for table `Produtos`
 --
 
-DROP TABLE IF EXISTS `Produtos`;
+DROP TABLE IF EXISTS `PRODUTO`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Produtos` (
+CREATE TABLE `PRODUTO` (
   `Nome` varchar(45) NOT NULL,
   `Custo` int(11) NOT NULL,
-  `IdProduto` int(11) NOT NULL,
+  `IdProduto` int(11) NOT NULL AUTO_INCREMENT,
   `Quantidade` int(11) NOT NULL,
   PRIMARY KEY (`IdProduto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -118,7 +120,7 @@ CREATE TABLE `Produtos` (
 -- Dumping data for table `Produtos`
 --
 
-LOCK TABLES `Produtos` WRITE;
+LOCK TABLES `PRODUTO` WRITE;
 /*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
 UNLOCK TABLES;
