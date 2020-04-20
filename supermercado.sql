@@ -83,6 +83,7 @@ CREATE TABLE `FUNCIONARIO` (
   `Nome` varchar(45) NOT NULL,
   `Data de Nascimento` date NOT NULL,
   `NumCC` varchar(12) NOT NULL,
+  `Supervisor` int(11) DEFAULT NULL,
   `Morada` varchar(45) NOT NULL,
   `Numero Telemovel` varchar(9) NOT NULL,
   `Email` varchar(45) DEFAULT NULL,
