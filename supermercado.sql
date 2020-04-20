@@ -29,8 +29,9 @@ CREATE TABLE `CLIENTE` (
   `Data de Nascimento` date NOT NULL,
   `NumCC` varchar(12) NOT NULL,
   `Morada` varchar(45) NOT NULL,
+  `Email`  varchar(64) DEFAULT NULL,
   `Numero Telemovel` varchar(9) NOT NULL,
-  `Genero` char(1) NOT NULL,
+  `Genero` ENUM('M', 'F') NOT NULL,
   PRIMARY KEY (`NumCC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -84,7 +85,8 @@ CREATE TABLE `FUNCIONARIO` (
   `NumCC` varchar(12) NOT NULL,
   `Morada` varchar(45) NOT NULL,
   `Numero Telemovel` varchar(9) NOT NULL,
-  `Email` varchar(45) NOT NULL,
+  `Email` varchar(45) DEFAULT NULL,
+  `Genero` ENUM('M', 'F') NOT NULL,
   `Salário` int(11) NOT NULL,
   `Horas Trabalho` int(11) NOT NULL,
   PRIMARY KEY (`NumCC`)
