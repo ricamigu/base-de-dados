@@ -94,7 +94,7 @@ CREATE TABLE `FUNCIONARIO` (
   PRIMARY KEY (`IdFuncionario`),
   UNIQUE KEY `NumCC` (`NumCC`),
   KEY `Supervisor` (`Supervisor`),
-  CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Supervisor`) REFERENCES `FUNCIONARIO` (`IdFuncionario`) ON UPDATE CASCADE
+  FOREIGN KEY (`Supervisor`) REFERENCES `FUNCIONARIO` (`IdFuncionario`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -118,8 +118,10 @@ CREATE TABLE `PRODUTO` (
   `Nome` varchar(45) NOT NULL,
   `Custo` int(11) NOT NULL,
   `IdProduto` int(11) NOT NULL AUTO_INCREMENT,
+  `Empresa` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
-  PRIMARY KEY (`IdProduto`)
+  PRIMARY KEY (`IdProduto`),
+  FOREIGN KEY(`Empresa`) REFERENCES `FORNECEDOR`(`IdEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
