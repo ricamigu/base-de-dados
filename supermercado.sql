@@ -26,11 +26,11 @@ DROP TABLE IF EXISTS `CLIENTE`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CLIENTE` (
   `Nome` varchar(45) NOT NULL,
-  `Data de Nascimento` date NOT NULL,
+  `DataNascimento` date NOT NULL,
   `NumCC` varchar(12) NOT NULL,
   `Morada` varchar(45) NOT NULL,
   `Email`  varchar(64) DEFAULT NULL,
-  `Numero Telemovel` varchar(9) NOT NULL,
+  `NumTelemovel` varchar(9) NOT NULL,
   `Genero` ENUM('M', 'F') NOT NULL,
   PRIMARY KEY (`NumCC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -53,12 +53,12 @@ DROP TABLE IF EXISTS `FORNECEDOR`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `FORNECEDOR` (
-  `Nome da Empresa` varchar(45) NOT NULL,
-  `Nome do Produto` varchar(45) NOT NULL,
+  `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT,
+  `NomeEmpresa` varchar(45) NOT NULL,
+  `NomeProduto` varchar(45) NOT NULL,
   `Custo` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
   `Comissão` decimal(3,2) NOT NULL,
-  `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`IdEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -82,15 +82,17 @@ DROP TABLE IF EXISTS `FUNCIONARIO`;
 CREATE TABLE `FUNCIONARIO` (
   `IdFuncionario` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(45) NOT NULL,
-  `Data de Nascimento` date NOT NULL,
+  `NumCC` int(12) NOT NULL,
+  `DataNascimento` date NOT NULL,
   `Supervisor` int(11) DEFAULT NULL,
   `Morada` varchar(45) NOT NULL,
-  `Numero Telemovel` varchar(9) NOT NULL,
+  `NumTelemovel` varchar(9) NOT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `Genero` ENUM('M', 'F') NOT NULL,
   `Salário` int(11) NOT NULL,
-  `Horas Trabalho` int(11) NOT NULL,
+  `HorasTrabalho` int(11) NOT NULL,
   PRIMARY KEY (`IdFuncionario`),
+  UNIQUE KEY `NumCC` (`NumCC`),
   KEY `Supervisor` (`Supervisor`),
   CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Supervisor`) REFERENCES `FUNCIONARIO` (`IdFuncionario`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
