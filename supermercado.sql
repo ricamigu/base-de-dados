@@ -28,7 +28,6 @@ CREATE TABLE `CLIENTE` (
   `Nome` varchar(45) NOT NULL,
   `DataNascimento` date NOT NULL,
   `NumCC` int NOT NULL,
-  `Morada` varchar(45) NOT NULL,
   `Email`  varchar(64) DEFAULT NULL,
   `NumTelemovel` varchar(9) NOT NULL,
   `Genero` ENUM('M', 'F') NOT NULL,
@@ -154,7 +153,35 @@ LOCK TABLES `NUM_TELEMOVEL_CLIENTE` WRITE;
 UNLOCK TABLES;
 
 
--- num telefone para multi-valor
+
+DROP TABLE IF EXISTS `MORADA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MORADA` (
+  `NumCC` int NOT NULL,
+  `Rua` varchar(45) NOT NULL,
+  `NumRua` int NOT NULL,
+  `Andar` int DEFAULT NULL,
+  `Localidade` varchar(45) NOT NULL,
+  `CodPostal` varchar(45) NOT NULL,
+  PRIMARY KEY (`NumCC`),
+  FOREIGN KEY(`NumCC`) REFERENCES `CLIENTE`(`NumCC`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Produtos`
+--
+
+LOCK TABLES `MORADA` WRITE;
+/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+
+-- tabela para encomendas
 
 DROP TABLE IF EXISTS `ENCOMENDAS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
