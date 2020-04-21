@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `CLIENTE`;
 CREATE TABLE `CLIENTE` (
   `Nome` varchar(45) NOT NULL,
   `DataNascimento` date NOT NULL,
-  `NumCC` varchar(12) NOT NULL,
+  `NumCC` int NOT NULL,
   `Morada` varchar(45) NOT NULL,
   `Email`  varchar(64) DEFAULT NULL,
   `NumTelemovel` varchar(9) NOT NULL,
@@ -84,8 +84,6 @@ CREATE TABLE `FUNCIONARIO` (
   `Nome` varchar(45) NOT NULL,
   `NumCC` int(12) NOT NULL,
   `DataNascimento` date NOT NULL,
-  `Morada` varchar(45) NOT NULL,
-  
   `Email` varchar(45) DEFAULT NULL,
   `Genero` ENUM('M', 'F') NOT NULL,
   `Departamento` varchar(45) NOT NULL,
@@ -110,12 +108,12 @@ LOCK TABLES `FUNCIONARIO` WRITE;
 /*!40000 ALTER TABLE `Funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
--- num telefone para multi-valor
+-- num telemovel de func para multi-valor
 
-DROP TABLE IF EXISTS `NUM_TELEFONE`;
+DROP TABLE IF EXISTS `NUM_TELEMOVEL_FUNC`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `NUM_TELEFONE` (
+CREATE TABLE `NUM_TELEMOVEL_FUNC` (
   `IdFuncionario` int NOT NULL,
   `Num_Telemovel` int NOT NULL,
   PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
@@ -127,11 +125,61 @@ CREATE TABLE `NUM_TELEFONE` (
 -- Dumping data for table `Produtos`
 --
 
-LOCK TABLES `NUM_TELEFONE` WRITE;
+LOCK TABLES `NUM_TELEMOVEL_FUNC` WRITE;
 /*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+-- num telemovel de clientes para multi-valor
+
+DROP TABLE IF EXISTS `NUM_TELEMOVEL_CLIENTE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NUM_TELEMOVEL_CLIENTE` (
+  `NumCC` int NOT NULL,
+  `Num_Telemovel` int NOT NULL,
+  PRIMARY KEY (`NumCC`,`Num_Telemovel`),
+  FOREIGN KEY(`NumCC`) REFERENCES `CLIENTE`(`NumCC`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Produtos`
+--
+
+LOCK TABLES `NUM_TELEMOVEL_CLIENTE` WRITE;
+/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+-- num telefone para multi-valor
+
+DROP TABLE IF EXISTS `ENCOMENDAS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ENCOMENDAS` (
+  `NumCC` int NOT NULL,
+  `IdEmpresa` int NOT NULL,
+  `IdProduto` int NOT NULL,
+  `Quantidade` int NOT NULL,
+  `Custo` int NOT NULL,
+  PRIMARY KEY (`NumCC`),
+  FOREIGN KEY (`IdEmpresa`) REFERENCES `EMPRESA`(`IdEmpresa`) ON DELETE CASCADE,
+  FOREIGN KEY (`IdProduto`) REFERENCES `PRODUTO`(`IdProduto`) ON DELETE CASCADE,
+  FOREIGN KEY(`NumCC`) REFERENCES `CLIENTE`(`NumCC`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Produtos`
+--
+
+LOCK TABLES `ENCOMENDAS` WRITE;
+/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 --
