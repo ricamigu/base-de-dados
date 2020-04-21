@@ -92,10 +92,12 @@ CREATE TABLE `FUNCIONARIO` (
   `Supervisor` int(11) DEFAULT NULL,
   `Salário` int(11) NOT NULL,
   `HorasTrabalho` int(11) NOT NULL,
+  `Gere` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`IdFuncionario`),
   UNIQUE KEY `NumCC` (`NumCC`),
   KEY `Supervisor` (`Supervisor`),
-  FOREIGN KEY (`Supervisor`) REFERENCES `FUNCIONARIO` (`IdFuncionario`) ON UPDATE CASCADE
+  FOREIGN KEY (`Supervisor`) REFERENCES `FUNCIONARIO` (`IdFuncionario`) ON UPDATE CASCADE,
+  FOREIGN KEY (`Gere`) REFERENCES `DEPARTAMENTO` (`NomeDepartamento`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -117,7 +119,7 @@ CREATE TABLE `NUM_TELEFONE` (
   `IdFuncionario` int NOT NULL,
   `Num_Telemovel` int NOT NULL,
   PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
-  FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON UPDATE CASCADE
+  FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
