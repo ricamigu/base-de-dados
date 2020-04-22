@@ -25,12 +25,11 @@ DROP TABLE IF EXISTS `CLIENTE`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CLIENTE` (
+  `NumCC` int NOT NULL,
   `Nome` varchar(45) NOT NULL,
   `DataNascimento` date NOT NULL,
-  `NumCC` int NOT NULL,
-  `Email`  varchar(64) DEFAULT NULL,
-  `NumTelemovel` varchar(9) NOT NULL,
   `Genero` ENUM('M', 'F') NOT NULL,
+  `Email`  varchar(64) DEFAULT NULL,
   PRIMARY KEY (`NumCC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,6 +40,7 @@ CREATE TABLE `CLIENTE` (
 
 LOCK TABLES `CLIENTE` WRITE;
 /*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
+INSERT INTO `CLIENTE` (`NumCC`,`Nome`,`DataNascimento`,`Genero`,`Email`) VALUES (123456789,'João Augusto','2000-05-16','M',NULL),(987654320,'Maria Rodrigues','1995-03-18','F','marianarodrigues@gmail.com'),(134679240,'Ana Sousa','1999-11-06','F','ana.sousa2@gmail.com'),(864938256,'Pedro Sampaio','2001-06-04','M',NULL),(113399556,'Sandra Costa','1994-04-14','F','sandra1232gmail.com'),(435678097,'Miguel Gonçalves','1996-06-06','M','miguelgonçalves@gmail.com'),(222446688,'Ana Margarida Fernandes','1997-05-07','F',NULL),(234587652,'Carolina Gomes','2000-05-25','F',NULL),(114325678,'Mafalda Sampaio','2000-08-22','F','mafalda.sampaio2gmail.com'),(125467890,'Gabriel Simões','1995-05-05','M','gabrielsimoes24@gmail.com');
 /*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,6 +149,7 @@ CREATE TABLE `NUM_TELEMOVEL_CLIENTE` (
 
 LOCK TABLES `NUM_TELEMOVEL_CLIENTE` WRITE;
 /*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+INSERT INTO `NUM_TELEMOVEL_CLIENTE` (`NumCC`,`Num_Telemovel`) VALUES (123456789,934568932),(987654320,912345678),(134679240,923457801),(864938256,914539754),(113399556,920053846),(435678097,911232836),(222446688,932153841),(234587652,923846273),(114325678,926475362),(125467890,960843233);
 /*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
