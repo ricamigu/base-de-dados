@@ -1,0 +1,434 @@
+****************CLIENTE*********** 
+Nome                          
+Joao Augusto
+Maria Rodrigues
+Ana Sousa
+Pedro Sampaio
+Sandra Costa
+Miguel Gonçalves
+Ana Margarida Fernandes
+Carolina Gomes
+Mafalda Sampaio
+Gabriel Simoes
+
+Data de Nascimento
+2000-05-16
+1995-03-18
+1999-11-06
+2001-06-04
+1994-04-14
+1996-06-06
+1997-05-07
+2000-05-25
+2000-08-22
+1995-05-05
+
+NumCC
+123456789
+098765432
+134679240
+864938256
+113399556
+435678097
+222446688
+234587652
+114325678
+125467890
+
+Email
+NULL
+mariarodrigues@gmail.com
+ana.sousa2gmail.com
+NULL
+sandra1232gmail.com
+miguelgonçalves@gmail.com
+NULL
+NULL
+mafalda.sampaio2gmail.com
+gabrielsimoes24@gmail.com
+
+NumTelemovel
+934568932
+912345678
+923457801
+914539754
+920053846
+NULL
+NULL
+923846273
+926475362
+
+
+Genero
+M
+F
+F
+M
+F
+M
+F
+F
+F
+M
+
+************FUNCIONARIOS****************
+IdFuncionario
+1234
+1235
+1236
+1237
+1238
+1239
+1240
+1241
+1242
+1243
+1244
+1245
+
+Nome
+Maria Pereira
+Pedro Rodrigues
+Francisca Costa
+João Moreira
+Andreia Fonseca
+David Gomes
+Duarte Ferreira
+Filipa Sousa
+Madalena Faria
+Antonio Teixiera
+José Vieira
+Marco Pinheiro
+
+NummCC
+457891232
+567890123
+467123890
+678943215
+712389045
+837612389
+984672651
+263718365
+647281937
+783691274
+856478239
+249475832
+
+DataNascimento
+28-05-1993
+16-01-1991
+25-04-1992
+12-02-1995
+29-11-1994
+23-09-1993
+13-10-1992
+15-07-1994
+25-03-1995
+17-08-1991
+12-05-1995
+23-09-1990
+
+
+Email
+mariapereira@gmail.com
+pedrorodrigues@gmail.com
+franciscacosta@gmail.com
+joaomoreira@gmail.com
+andreiafonseca@gmail.com
+davidgomes@gmail.com
+duarteferreira@gmail.com
+filipasousa@gmail.com
+madalenafaria@gmail.com
+antonioteixeira@gmail.com
+josevieira@gmail.com
+marcopiheiro@gmail.com
+
+
+Genero
+F
+M
+F
+M
+F
+M
+M
+F
+F
+M
+M
+M
+
+
+Departamento
+Administraçao
+Reposiçao
+Marketing
+Logistica
+Administraçao
+Reposiçao
+Financeiro
+Marketing 
+Reposiçao
+Logistica
+
+Supervisor
+NULL
+NULL
+NULL
+João Moreira
+NULL
+David Gomes
+NULL
+NULL
+NULL
+NULL
+NULL
+Jose Vieira
+Marco Pinheiro
+
+
+Salario
+1000
+1000
+600
+1000
+600
+1000
+1000
+1000
+600
+1000
+1000
+1000
+
+
+
+HorasTrabalho
+40
+40
+40
+40
+40
+20
+20
+40
+20
+40
+
+Gere
+Administraçao
+Reposiçao
+NULL
+NULL
+NULL
+NULL
+Financeiro
+Marketing 
+NULL
+Logistica
+
+
+************DEPARTAMENTO*********+
+NomeDepartamento
+Administraçao
+Reposiçao
+Financeiro
+Marketing
+Logistica
+
+Gestor
+Maria Pereira
+Pedro Rodrigues
+Duarte Ferreira
+Filipa Sousa
+Antonio Teixiera
+
+*********PRODUTO********+
+Nome
+Cereais
+Leite
+Bolachas
+Iogurtes
+Cafe
+Água
+
+Custo
+1.50
+0.45
+1.20
+1.00
+0.40
+0.70
+
+IdProduto
+560123456
+560123457
+560123458
+560123459
+560123450
+560123460
+
+IdEmpresa
+Quantidade 
+100 unidades
+500 litros
+350 unidades
+200 unidades
+300 unidades
+500 litros
+
+
+********ENCOMENDAS********* 
+NumCC 
+123456789
+098765432
+134679240
+864938256
+113399556
+435678097
+222446688
+234587652
+114325678
+125467890
+
+IdProduto
+560123456
+560123457
+560123458
+560123459
+560123450
+560123460
+
+Quantidade
+100 unidades
+500 litros
+350 unidades
+200 unidades
+300 unidades
+500 litros
+
+Custo
+1.50
+0.45
+1.20
+1.00
+0.40
+0.70
+
+*******FORNECEDORES********* 
+
+IdEmpresa
+500200100
+501201101
+502202102
+503203103
+504204104
+
+NomeEmpresa
+NESTLÉ
+LACTOGAL
+NACIONAL
+DANONE
+DELTA
+LUSO
+
+NomeProduto
+Cereais
+Leite
+Bolachas
+Iogurtes
+Cafe
+Água
+
+Custo
+1.90
+0.60
+1.50
+1.20
+0.60
+1.00
+
+Comissao
+15%
+10%
+12%
+15%
+20%
+10%
+
+**********MORADA**********+
+NumCC
+123456789
+098765432
+134679240
+864938256
+113399556
+435678097
+222446688
+234587652
+114325678
+125467890
+
+Rua
+Rua Roberto Duarte Silva
+Rua da Betesga
+Rua do Comércio
+Rua da Junqueira
+Rua do Guarda-Mor
+Rua Ferreira Lapa
+Rua General Morais Sarmento
+Rua da Oliveira ao Carmo
+Rua DOUTOR MÁRIO AMARAL
+Rua das letras
+Rua das flores
+
+NumRua
+53
+179
+43
+24
+134
+274
+564
+345
+87
+101
+
+Andar
+NULL
+4
+NULL
+3
+2
+7
+NULL
+8
+9
+NULL
+
+Localidade
+Porto
+Paredes
+Porto
+Vila Nova de Gaia
+Espinho
+Porto
+Porto
+Vila Nova de Gaia
+Porto
+
+CodPostal
+4000-015
+4580-098
+4000-152
+4400-456
+4500-478
+4000-345
+4000-467
+4400-064
+4000-164
+
+
+
+
+
