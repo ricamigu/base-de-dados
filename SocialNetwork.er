@@ -1,0 +1,25 @@
+/*
+ dbdia example - ER model for simple "social network"
+ Eduardo Marques
+ https://github.com/edrdo/dbdia
+*/
+
+CLIENTE ( _ NumCC_ , Nome ,Email? ,Genero ,DatadeNascimento,{NumTelefone},Morada(Rua,NUm,Andar?,Localidade,.CodPostal.))
+
+PRODUTO (_IdProduto_,Nome,Custo,IdEmpresa,Quantidade)
+
+DEPARTAMENTO (_NomeDepartamento_,Gestor)
+
+FUNCIONARIO(_IdFuncionario_,Email?,Genero,Nome,DatadeNascimento,NumCC,
+Departamento,Supervisor,Salario,.HorasdeTradalho.)
+
+FORNECEDOR(_IdEmpresa_,NomeEmpresa,NomeProduto,Custo,Comissao)
+
+ENCOMENDAS(_IdProduto_,NumCC,Custo,Quantidade)
+
+CLIENTE === M ===<COMPRA>=== N ===PRODUTO
+FORNECEDOR ===M== <FORNECE>===N===PRODUTO
+FUNCIONARIO ---1---<VENDE>===N===PRODUTO
+ENCOMENDAS===N===<ENCOMENDA> ---1--- CLIENTE
+FUNCIONARIO ===1===<SUPERVISIONA(Supervisor,Horas)> ---1--- FUNCIONARIO
+FUNCIONARIO---1--- <TRABALHA_EM> ---1---DEPARTAMENTO
