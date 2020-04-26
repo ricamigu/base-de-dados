@@ -110,26 +110,6 @@ UNLOCK TABLES;
 
 -- num telemovel de func para multi-valor
 
-DROP TABLE IF EXISTS `NUM_TELEMOVEL_FUNC`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `NUM_TELEMOVEL_FUNC` (
-  `IdFuncionario` int NOT NULL,
-  `Num_Telemovel` int NOT NULL,
-  PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
-  FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Produtos`
---
-
-LOCK TABLES `NUM_TELEMOVEL_FUNC` WRITE;
-/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 -- num telemovel de clientes para multi-valor
 
@@ -144,14 +124,11 @@ CREATE TABLE `NUM_TELEMOVEL_CLIENTE` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `Produtos`
---
 
 LOCK TABLES `NUM_TELEMOVEL_CLIENTE` WRITE;
-/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `NUM_TELEMOVEL_CLIENTE` DISABLE KEYS */;
 INSERT INTO `NUM_TELEMOVEL_CLIENTE` (`NumCC`,`Num_Telemovel`) VALUES (123456789,936334381),(123456789,934568932),(987654320,912345678),(134679240,923457801),(864938256,914539754),(113399556,920053846),(435678097,911232836),(222446688,932153841),(222446688,920102912),(234587652,923846273),(114325678,926475362),(125467890,960843233),(125467890,966675532);
-/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE `NUM_TELEMOVEL_CLIENTE` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -176,9 +153,9 @@ CREATE TABLE `MORADA` (
 --
 
 LOCK TABLES `MORADA` WRITE;
-/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
-INSERT INTO `MORADA` (`NumCC`,`Rua`,`NumRua`,`Andar`,`Localidade`,`CodPostal`) VALUES (123456789,'Rua Roberto Duarte Silva',53,NULL,'Porto','4000-015'),(098765432,'Rua da Betesga',179,4,'Paredes','4580-098'),(134679240,'Rua do Comércio',43,NULL,'Porto','4000-152'),(864938256,'Rua da Junqueira',24,3,'Vila Nova de Gaia','4400-456'),(113399556,'Rua do Guarda-Mor',134,2,'Espinho','4500-478'),(435678097,'Rua Ferreira Lapa',274,7,'Porto','4000-345'),(222446688,'Rua General Morais Sarmento',564,NULL,'Porto','4000-467'),(234587652,'Rua da Oliveira ao Carmo',345,8,'Vila Nova de Gaia','4400-064');
-/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE `MORADA` DISABLE KEYS */;
+INSERT INTO `MORADA` (`NumCC`,`Rua`,`NumRua`,`Andar`,`Localidade`,`CodPostal`) VALUES (123456789,'Rua Roberto Duarte Silva',53,NULL,'Porto','4000-015'),(198765432,'Rua da Betesga',179,4,'Paredes','4580-098'),(134679240,'Rua do Comércio',43,NULL,'Porto','4000-152'),(864938256,'Rua da Junqueira',24,3,'Vila Nova de Gaia','4400-456'),(113399556,'Rua do Guarda-Mor',134,2,'Espinho','4500-478'),(435678097,'Rua Ferreira Lapa',274,7,'Porto','4000-345'),(222446688,'Rua General Morais Sarmento',564,NULL,'Porto','4000-467'),(234587652,'Rua da Oliveira ao Carmo',345,8,'Vila Nova de Gaia','4400-064');
+/*!40000 ALTER TABLE `MORADA` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -202,27 +179,41 @@ CREATE TABLE `ENCOMENDAS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `Produtos`
---
 
+
+DROP TABLE IF EXISTS `NUM_TELEFONE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NUM_TELEFONE` (
+  `IdFuncionario` int(11) NOT NULL,
+  `Num_Telemovel` int(11) NOT NULL,
+  PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
+  FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `NUM_TELEFONE` WRITE;
+/*!40000 ALTER TABLE `NUM_TELEFONE` DISABLE KEYS */;
+INSERT INTO `NUM_TELEFONE` (`IdFuncionario`,`Num_Telemovel`) VALUES (1234,229487645),(1235,229548976),(1236,222436580),(1237,225489002),(1238,223489987),(1239,229001035),(1240,220548003),(1241,220545469),(1242,220323048),(1243,228254452),(1244,226008547),(1245,224487789);
+/*!40000 ALTER TABLE `NUM_TELEFONE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 LOCK TABLES `ENCOMENDAS` WRITE;
-/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ENCOMENDAS` DISABLE KEYS */;
 INSERT INTO `ENCOMENDAS` (`NumCC`,`IdEmpresa`,`IdProduto`,`Quantidade`,`Custo`) VALUES (123456789,435678097,560123456,100,1.50),(198765432,222446688,560123457,500,0.45),(134679240,234587652,560123458,350,1.20),(864938256,114325678,560123459,200,1.00),(113399556,125467890,560123450,300,0.40),(133848192,125467890,560123460,500,0.70);
-/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ENCOMENDAS` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
---
--- Table structure for table `Produtos`
---
+
 
 DROP TABLE IF EXISTS `PRODUTO`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PRODUTO` (
   `Nome` varchar(45) NOT NULL,
-  `Custo` int(11) NOT NULL,
+  `Custo` decimal(3,2) NOT NULL,
   `IdProduto` int(11) NOT NULL AUTO_INCREMENT,
   `Empresa` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
@@ -231,13 +222,11 @@ CREATE TABLE `PRODUTO` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `Produtos`
---
 
 LOCK TABLES `PRODUTO` WRITE;
-/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE `PRODUTO` DISABLE KEYS */;
+INSERT INTO `PRODUTO` (`Nome`,`Custo`,`IdProduto`,`Empresa`,`Quantidade`) VALUES ('Cereais',1.50,560123456,500200100,100),('Leite',0.45,560123457,501201101,500),('Bolachas',1.20,560123458,502202102,350),('Iogurtes',1.00,560123459,503203103,200),('Cafe',0.40,560123450,504204104,300),('Agua',0.70,560123460,504204105,500);
+/*!40000 ALTER TABLE `PRODUTO` ENABLE KEYS */;
 UNLOCK TABLES;
 
 -- DEPARTAMENTO
@@ -258,9 +247,9 @@ CREATE TABLE `DEPARTAMENTO` (
 --
 
 LOCK TABLES `DEPARTAMENTO` WRITE;
-/*!40000 ALTER TABLE `Produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `DEPARTAMENTO` DISABLE KEYS */;
 INSERT INTO `DEPARTAMENTO` (`NomeDepartamento`,`Gestor`) VALUES ('Administração',18248312847),('Reposição',23924612638),('Financeiro',18248312847),('Marketing',18248312847),('Logistica',18248312847);
-/*!40000 ALTER TABLE `Produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE `DEPARTAMENTO` ENABLE KEYS */;
 UNLOCK TABLES;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
