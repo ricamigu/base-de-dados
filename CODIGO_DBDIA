@@ -79,7 +79,7 @@ table PRODUTO
 (
   Nome varchar,
   Custo decimal,
-  IdProduto int,
-  _ Empresa _ --> FORNECEDOR.IdEmpresa,
+  _ IdProduto _ int,
+  Empresa --> FORNECEDOR.IdEmpresa,
   Quantidade int
 )
