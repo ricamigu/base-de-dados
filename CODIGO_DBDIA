@@ -35,6 +35,90 @@ table FUNCIONARIO
 )
 
 table ENCOMENDAS
+/*
+ dbdia example - MovieStream database (https://www.dcc.fc.up.pt/~edrdo/aulas/bd/teoricas/bd_movie_stream.pdf)
+ Eduardo Marques
+ https://github.com/edrdo/dbdia
+*/
+
+table CLIENTE 
+( 
+  _ NumCC _ int, 
+  Nome varchar, 
+  DataNascimento date,  
+  Genero enum,
+  Email varchar
+)
+
+table DEPARTAMENTO
+( 
+   _ NomeDepartamento _ varchar, 
+   Gestor int --> FUNCIONARIO.IdFuncionario
+)
+
+table FUNCIONARIO
+( 
+  _ IdFuncionario _ int, 
+  Nome varchar,
+  NumCC int,
+  DataNascimento date,
+  Email varchar,
+  Departamento varchar,
+  _ Supervisor _ int --> FUNCIONARIO.IdFuncionario,
+  Salario int, 
+  HorasTrabalho int,
+  _ Gere _ varchar --> DEPARTAMENTO.NomeDepartamento
+)
+
+table ENCOMENDAS
+(
+  _ NumCC _ int --> CLIENTE.NumCC,
+  IdEmpresa int --> FORNECEDOR.IdEmpresa,
+  IdProduto int --> PRODUTO.IdProduto,
+  Quantidade int,
+  Custo decimal
+  
+)
+
+table FORNECEDOR
+(
+ _ IdEmpresa _ int,
+ NomeEmpresa varchar,
+ NomeProduto varchar,
+ Custo decimal,
+ Comissao decimal
+)
+
+table MORADA
+(
+  _ NumCC _ int --> CLIENTE.NumCC,
+  Rua varchar,
+  NumRua int,
+  Andar int,
+  Localidade varchar,
+  CodPostal varchar
+)
+
+table NUM_TELEFONE
+(
+  _ IdFuncionario _ --> FUNCIONARIO.IdFuncionario,
+  _ NumTelemovel _ int
+)
+
+table NUM_TELEMOVEL_CLIENTE
+(
+  _ NumCC _ int --> CLIENTE.NumCC,
+  _ Num_Telemovel _ int 
+)
+
+table PRODUTO
+(
+  _ IdProduto _ int,
+  Nome varchar,
+  Custo decimal,
+  Empresa --> FORNECEDOR.IdEmpresa,
+  Quantidade int
+)
 (
   _ NumCC _ int --> CLIENTE.NumCC,
   _ IdEmpresa _ int --> FORNECEDOR.IdEmpresa,
