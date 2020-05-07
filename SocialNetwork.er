@@ -13,7 +13,7 @@ DEPARTAMENTO (_NomeDepartamento_,Gestor)
 FUNCIONARIO(_IdFuncionario_,Email?,Genero,Nome,DatadeNascimento,NumCC,
 Departamento,Supervisor,Salario,.HorasdeTradalho.)
 
-FORNECEDOR(_IdEmpresa_,NomeEmpresa,NomeProduto,Custo,Comissao)
+FORNECEDOR(_IdEmpresa_,NomeEmpresa,NomeProduto,IdProduto,Custo,Comissao)
 
 ENCOMENDAS(_IdProduto_,NumCC,Custo,Quantidade)
 
