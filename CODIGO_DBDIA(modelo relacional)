@@ -50,7 +50,7 @@ table ENCOMENDAS
 table FORNECEDOR
 (
  _ IdEmpresa _ int,
- _IdProduto_ int,
+ IdProduto int,
  NomeEmpresa varchar,
  NomeProduto varchar,
  Custo decimal,
