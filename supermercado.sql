@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: supermercado
 -- ------------------------------------------------------
--- Server version	5.7.28-0ubuntu0.19.04.2
+-- Server version 5.7.28-0ubuntu0.19.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,9 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+DROP DATABASE IF EXISTS `supermercado`;
+CREATE DATABASE `supermercado`;
 
 USE supermercado;
 
@@ -30,6 +33,11 @@ CREATE TABLE `CLIENTE` (
   `DataNascimento` date NOT NULL,
   `Genero` ENUM('M', 'F') NOT NULL,
   `Email`  varchar(64) DEFAULT NULL,
+  `Morada_Rua` varchar(45) NOT NULL,
+  `Morada_NumRua` int NOT NULL,
+  `Morada_Andar` int DEFAULT NULL,
+  `Morada_Localidade` varchar(45) NOT NULL,
+  `Morada_CodPostal` varchar(45) NOT NULL,
   PRIMARY KEY (`NumCC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,9 +48,10 @@ CREATE TABLE `CLIENTE` (
 
 LOCK TABLES `CLIENTE` WRITE;
 /*!40000 ALTER TABLE `Cliente` DISABLE KEYS */;
-INSERT INTO `CLIENTE` (`NumCC`,`Nome`,`DataNascimento`,`Genero`,`Email`) VALUES (123456789,'João Augusto','2000-05-16','M','joao_augusto00@gmail.com'),(987654320,'Maria Rodrigues','1995-03-18','F','marianarodrigues@gmail.com'),(134679240,'Ana Sousa','1999-11-06','F','ana.sousa2@gmail.com'),(864938256,'Pedro Sampaio','2001-06-04','M','pedro_sp@hotmail.com'),(113399556,'Sandra Costa','1994-04-14','F','sandra1232gmail.com'),(435678097,'Miguel Gonçalves','1996-06-06','M','miguelgonçalves@gmail.com'),(222446688,'Ana Margarida Fernandes','1997-05-07','F','maguifernandes@hotmail.com'),(234587652,'Carolina Gomes','2000-05-25','F','carol-gomes@gmail.com'),(114325678,'Mafalda Sampaio','2000-08-22','F','mafalda.sampaio2gmail.com'),(125467890,'Gabriel Simões','1995-05-05','M','gabrielsimoes24@gmail.com');
+INSERT INTO `CLIENTE` (`NumCC`,`Nome`,`DataNascimento`,`Genero`,`Email`,`Morada_Rua`,`Morada_NumRua`,`Morada_Andar`,`Morada_Localidade`,`Morada_CodPostal`) VALUES (123456789,'João Augusto','2000-05-16','M','joao_augusto00@gmail.com','Rua Roberto Duarte Silva',53,NULL,'Porto','4000-015'), (987654320,'Maria Rodrigues','1995-03-18','F','marianarodrigues@gmail.com','Rua da Betesga',179,4,'Paredes','4580-098'),(134679240,'Ana Sousa','1999-11-06','F','ana.sousa2@gmail.com','Rua do Comércio',43,NULL,'Porto','4000-152'),(864938256,'Pedro Sampaio','2001-06-04','M','pedro_sp@hotmail.com','Rua da Junqueira',24,3,'Vila Nova de Gaia','4400-456'),(113399556,'Sandra Costa','1994-04-14','F','sandra1232gmail.com','Rua do Guarda-Mor',134,2,'Espinho','4500-478'),(435678097,'Miguel Gonçalves','1996-06-06','M','miguelgonçalves@gmail.com','Rua do Guarda-Mor',134,2,'Espinho','4500-478'),(222446688,'Ana Margarida Fernandes','1997-05-07','F','maguifernandes@hotmail.com','Rua Ferreira Lapa',274,7,'Porto','4000-345'),(114325678,'Mafalda Sampaio','2000-08-22','F','mafalda.sampaio2gmail.com','Rua General Morais Sarmento',564,NULL,'Porto','4000-467'),(125467890,'Gabriel Simões','1995-05-05','M','gabrielsimoes24@gmail.com','Rua da Oliveira ao Carmo',345,8,'Vila Nova de Gaia','4400-064'),(234587652,'Carolina Gomes','2000-05-25','F','carol-gomes@gmail.com','Rua Roberto Aberto',69,4,'Grijó','4415-123');
 /*!40000 ALTER TABLE `Cliente` ENABLE KEYS */;
 UNLOCK TABLES;
+
 
 --
 -- Table structure for table `Fornecedores`
@@ -104,7 +113,7 @@ CREATE TABLE `FUNCIONARIO` (
 
 LOCK TABLES `FUNCIONARIO` WRITE;
 /*!40000 ALTER TABLE `Funcionarios` DISABLE KEYS */;
-INSERT INTO `FUNCIONARIO` (`idFuncionario`,`Nome`,`NumCC`,`DataNascimento`,`Email`,`Genero`,`Departamento`,`Supervisor`,`Salário`,`HorasTrabalho`,`Gere`) VALUES (1234,'Maria Pereira',457891232,'1993-05-28','mariapereira@gmail.com','F','Administraçao',NULL,1000,40,'Administração'),(1235,'Pedro Rodrigues',567890123,'1991-01-16','pedrorodrigues@gmail.com','M','Reposiçao',NULL,1000,40,'Reposiçao'),(1236,'Francisca Costa',467123890,'1992-04-25','franciscacosta@gmail.com','F','Marketing',NULL,600,40,NULL),(1237,'João Moreira',678943215,'1995-02-12','joaomoreira@gmail.com','M','Logistica',678943215,1000,40,NULL),(1238,'Andreia Fonseca',712389045,'1994-11-29','andreiafonseca@gmail.com','F','Administraçao',NULL,600,40,NULL),(1239,'David Gomes',837612389,'1993-09-23','davidgomes@gmail.com','M','Reposiçao',837612389,1000,20,NULL),(1240,'Duarte Ferreira',984672651,'1992-10-13','duarteferreira@gmail.com','M','Financeiro',NULL,1000,20,'Financeiro'),(1241,'Filipa Sousa',263718365,'1994-07-15','filipasousa@gmail.com','F','Marketing',NULL,1000,40,'Marketing '),(1242,'Madalena Faria',647281937,'1995-03-25','madalenafaria@gmail.com','F','Reposiçao',NULL,600,20,NULL),(1243,'Antonio Teixiera',783691274,'1991-08-17','antonioteixeira@gmail.com','M','Logistica',NULL,1000,40,'Logistica'),(1244,'José Vieira',856478239,'1995-05-12','josevieira@gmail.com','M','Reposição',856478239,1000,20,'Logistica'),(1245,'Marco Pinheiro',249475832,'1990-09-23','marcopiheiro@gmail.com','M','Marketing',249475832,1000,20,'Marketing');
+INSERT INTO `FUNCIONARIO` (`idFuncionario`,`Nome`,`NumCC`,`DataNascimento`,`Email`,`Genero`,`Departamento`,`Supervisor`,`Salário`,`HorasTrabalho`,`Gere`) VALUES (1246,'Maria Pereira',457891232,'1993-05-28','mariapereira@gmail.com','F','Administraçao',NULL,1000,40,'Administração'),(1235,'Pedro Rodrigues',567890123,'1991-01-16','pedrorodrigues@gmail.com','M','Reposiçao',NULL,1000,40,'Reposiçao'),(1236,'Francisca Costa',467123890,'1992-04-25','franciscacosta@gmail.com','F','Marketing',NULL,600,40,NULL),(1237,'João Moreira',678943215,'1995-02-12','joaomoreira@gmail.com','M','Logistica',678943215,1000,40,NULL),(1238,'Andreia Fonseca',712389045,'1994-11-29','andreiafonseca@gmail.com','F','Administraçao',NULL,600,40,NULL),(1239,'David Gomes',837612389,'1993-09-23','davidgomes@gmail.com','M','Reposiçao',837612389,1000,20,NULL),(1240,'Duarte Ferreira',984672651,'1992-10-13','duarteferreira@gmail.com','M','Financeiro',NULL,1000,20,'Financeiro'),(1241,'Filipa Sousa',263718365,'1994-07-15','filipasousa@gmail.com','F','Marketing',NULL,1000,40,'Marketing '),(1242,'Madalena Faria',647281937,'1995-03-25','madalenafaria@gmail.com','F','Reposiçao',NULL,600,20,NULL),(1243,'Antonio Teixiera',783691274,'1991-08-17','antonioteixeira@gmail.com','M','Logistica',NULL,1000,40,'Logistica'),(1244,'José Vieira',856478239,'1995-05-12','josevieira@gmail.com','M','Reposição',856478239,1000,20,NULL),(1245,'Marco Pinheiro',249475832,'1990-09-23','marcopiheiro@gmail.com','M','Marketing',249475832,1000,20,NULL),(1234,'Ricardo Ribeiro',324175322,'1998-06-14','ricamigu@gmail.com','M','CEO',NULL,50000,10,'CEO');
 /*!40000 ALTER TABLE `Funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,35 +141,6 @@ INSERT INTO `NUM_TELEMOVEL_CLIENTE` (`NumCC`,`Num_Telemovel`) VALUES (123456789,
 UNLOCK TABLES;
 
 
-
-DROP TABLE IF EXISTS `MORADA`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `MORADA` (
-  `NumCC` int NOT NULL,
-  `Rua` varchar(45) NOT NULL,
-  `NumRua` int NOT NULL,
-  `Andar` int DEFAULT NULL,
-  `Localidade` varchar(45) NOT NULL,
-  `CodPostal` varchar(45) NOT NULL,
-  PRIMARY KEY (`NumCC`),
-  FOREIGN KEY(`NumCC`) REFERENCES `CLIENTE`(`NumCC`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Produtos`
---
-
-LOCK TABLES `MORADA` WRITE;
-/*!40000 ALTER TABLE `MORADA` DISABLE KEYS */;
-INSERT INTO `MORADA` (`NumCC`,`Rua`,`NumRua`,`Andar`,`Localidade`,`CodPostal`) VALUES (123456789,'Rua Roberto Duarte Silva',53,NULL,'Porto','4000-015'),(198765432,'Rua da Betesga',179,4,'Paredes','4580-098'),(134679240,'Rua do Comércio',43,NULL,'Porto','4000-152'),(864938256,'Rua da Junqueira',24,3,'Vila Nova de Gaia','4400-456'),(113399556,'Rua do Guarda-Mor',134,2,'Espinho','4500-478'),(435678097,'Rua Ferreira Lapa',274,7,'Porto','4000-345'),(222446688,'Rua General Morais Sarmento',564,NULL,'Porto','4000-467'),(234587652,'Rua da Oliveira ao Carmo',345,8,'Vila Nova de Gaia','4400-064');
-/*!40000 ALTER TABLE `MORADA` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-
-
 -- tabela para encomendas
 
 DROP TABLE IF EXISTS `ENCOMENDAS`;
@@ -180,24 +160,6 @@ CREATE TABLE `ENCOMENDAS` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-
-DROP TABLE IF EXISTS `NUM_TELEFONE`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `NUM_TELEFONE` (
-  `IdFuncionario` int(11) NOT NULL,
-  `Num_Telemovel` int(11) NOT NULL,
-  PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
-  FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `NUM_TELEFONE` WRITE;
-/*!40000 ALTER TABLE `NUM_TELEFONE` DISABLE KEYS */;
-INSERT INTO `NUM_TELEFONE` (`IdFuncionario`,`Num_Telemovel`) VALUES (1234,229487645),(1235,229548976),(1236,222436580),(1237,225489002),(1238,223489987),(1239,229001035),(1240,220548003),(1241,220545469),(1242,220323048),(1243,228254452),(1244,226008547),(1245,224487789);
-/*!40000 ALTER TABLE `NUM_TELEFONE` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 LOCK TABLES `ENCOMENDAS` WRITE;
 /*!40000 ALTER TABLE `ENCOMENDAS` DISABLE KEYS */;
@@ -207,6 +169,23 @@ UNLOCK TABLES;
 
 
 
+DROP TABLE IF EXISTS `NUM_TELEMOVEL_FUNCIONARIO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NUM_TELEMOVEL_FUNCIONARIO` (
+  `IdFuncionario` int(11) NOT NULL,
+  `Num_Telemovel` int(11) NOT NULL,
+  PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
+  FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `NUM_TELEMOVEL_FUNCIONARIO` WRITE;
+/*!40000 ALTER TABLE `NUM_TELEFONE` DISABLE KEYS */;
+INSERT INTO `NUM_TELEMOVEL_FUNCIONARIO` (`IdFuncionario`,`Num_Telemovel`) VALUES (1234,969142369),(1235,229487645),(1235,229548976),(1236,222436580),(1237,225489002),(1238,223489987),(1239,229001035),(1240,220548003),(1241,220545469),(1242,220323048),(1243,228254452),(1244,226008547),(1245,224487789);
+/*!40000 ALTER TABLE `NUM_TELEFONE` ENABLE KEYS */;
+UNLOCK TABLES;
+
 
 DROP TABLE IF EXISTS `PRODUTO`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -215,17 +194,17 @@ CREATE TABLE `PRODUTO` (
   `Nome` varchar(45) NOT NULL,
   `Custo` decimal(3,2) NOT NULL,
   `IdProduto` int(11) NOT NULL AUTO_INCREMENT,
-  `Empresa` int(11) NOT NULL,
+  `IdEmpresa` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
   PRIMARY KEY (`IdProduto`),
-  FOREIGN KEY(`Empresa`) REFERENCES `FORNECEDOR`(`IdEmpresa`) ON UPDATE CASCADE
+  FOREIGN KEY(`IdEmpresa`) REFERENCES `FORNECEDOR`(`IdEmpresa`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
 LOCK TABLES `PRODUTO` WRITE;
 /*!40000 ALTER TABLE `PRODUTO` DISABLE KEYS */;
-INSERT INTO `PRODUTO` (`Nome`,`Custo`,`IdProduto`,`Empresa`,`Quantidade`) VALUES ('Cereais',1.50,560123456,500200100,100),('Leite',0.45,560123457,501201101,500),('Bolachas',1.20,560123458,502202102,350),('Iogurtes',1.00,560123459,503203103,200),('Cafe',0.40,560123450,504204104,300),('Agua',0.70,560123460,504204105,500);
+INSERT INTO `PRODUTO` (`Nome`,`Custo`,`IdProduto`,`IdEmpresa`,`Quantidade`) VALUES ('Cereais',1.50,560123456,500200100,100),('Leite',0.45,560123457,501201101,500),('Bolachas',1.20,560123458,502202102,350),('Iogurtes',1.00,560123459,503203103,200),('Cafe',0.40,560123450,504204104,300),('Agua',0.70,560123460,504204105,500);
 /*!40000 ALTER TABLE `PRODUTO` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +227,7 @@ CREATE TABLE `DEPARTAMENTO` (
 
 LOCK TABLES `DEPARTAMENTO` WRITE;
 /*!40000 ALTER TABLE `DEPARTAMENTO` DISABLE KEYS */;
-INSERT INTO `DEPARTAMENTO` (`NomeDepartamento`,`Gestor`) VALUES ('Administração',18248312847),('Reposição',23924612638),('Financeiro',18248312847),('Marketing',18248312847),('Logistica',18248312847);
+INSERT INTO `DEPARTAMENTO` (`NomeDepartamento`,`Gestor`) VALUES ('CEO',324175322),('Administração',457891232),('Reposição',567890123),('Financeiro',984672651),('Marketing',263718365),('Logistica',783691274);
 /*!40000 ALTER TABLE `DEPARTAMENTO` ENABLE KEYS */;
 UNLOCK TABLES;
 
