@@ -1,6 +1,4 @@
 /*
- dbdia example - MovieStream database (https://www.dcc.fc.up.pt/~edrdo/aulas/bd/teoricas/bd_movie_stream.pdf)
- Eduardo Marques
  https://github.com/edrdo/dbdia
 */
 
@@ -10,10 +8,10 @@ table CLIENTE
   Nome varchar, 
   DataNascimento date,  
   Genero enum,
-  Email varchar,
+  Email ? varchar,
   Morada_Rua varchar,
   Morada_NumRua int,
-  Morada_Andar int,
+  Morada_Andar ? int,
   Morada_Localidade varchar,
   Morada_CodPostal varchar
 )
@@ -30,12 +28,12 @@ table FUNCIONARIO
   Nome varchar,
   NumCC int,
   DataNascimento date,
-  Email varchar,
+  Email ? varchar,
   Departamento varchar --> DEPARTAMENTO.NomeDepartamento,
-  Supervisor int --> FUNCIONARIO.IdFuncionario,
+  Supervisor ? int --> FUNCIONARIO.IdFuncionario,
   Salario int, 
   HorasTrabalho int,
-  Gere varchar
+  Gere ? varchar
 )
 
 
