@@ -63,10 +63,12 @@ DROP TABLE IF EXISTS `FORNECEDOR`;
 CREATE TABLE `FORNECEDOR` (
   `IdEmpresa` int(11) NOT NULL AUTO_INCREMENT,
   `NomeEmpresa` varchar(45) NOT NULL,
+  `IdProduto` int(11) NOT NULL,
   `NomeProduto` varchar(45) NOT NULL,
   `Custo` decimal(3,2) NOT NULL,
   `Comissão` decimal(3,2) NOT NULL,
-  PRIMARY KEY (`IdEmpresa`)
+  PRIMARY KEY (`IdEmpresa`),
+  FOREIGN KEY (`IdProduto`) REFERENCES `PRODUTO`(`IdProduto`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,7 +78,7 @@ CREATE TABLE `FORNECEDOR` (
 
 LOCK TABLES `FORNECEDOR` WRITE;
 /*!40000 ALTER TABLE `Fornecedores` DISABLE KEYS */;
-INSERT INTO `FORNECEDOR` (`IdEmpresa`,`NomeEmpresa`,`NomeProduto`,`Custo`,`Comissão`) VALUES (500200100,'NESTLÉ','Cereais',1.90,0.15),(501201101,'LACTOGAL','Leite',0.60,0.10),(502202102,'NACIONAL','Bolachas',1.50,0.12),(503203103,'DANONE','Iogurtes',1.20,0.15),(504204104,'DELTA','Cafe',0.60,0.20),(504204105,'LUSO','Água',1.00,0.10);
+INSERT INTO `FORNECEDOR` (`IdEmpresa`,`NomeEmpresa`,`IdProduto`,`NomeProduto`,`Custo`,`Comissão`) VALUES (500200100,'NESTLÉ',560123456,'Cereais',1.90,0.15),(501201101,'LACTOGAL',560123457,'Leite',0.60,0.10),(502202102,'NACIONAL',560123458,'Bolachas',1.50,0.12),(503203103,'DANONE',560123459,'Iogurtes',1.20,0.15),(504204104,'DELTA',560123450,'Cafe',0.60,0.20),(504204105,'LUSO',560123460,'Água',1.00,0.10);
 /*!40000 ALTER TABLE `Fornecedores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +105,7 @@ CREATE TABLE `FUNCIONARIO` (
   UNIQUE KEY `NumCC` (`NumCC`),
   KEY `Supervisor` (`Supervisor`),
   FOREIGN KEY (`Supervisor`) REFERENCES `FUNCIONARIO` (`IdFuncionario`) ON UPDATE CASCADE,
-  FOREIGN KEY (`Gere`) REFERENCES `DEPARTAMENTO` (`NomeDepartamento`) ON UPDATE CASCADE
+  FOREIGN KEY (`Gere`) REFERENCES `DEPARTAMENTO`(`NomeDepartamento`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
