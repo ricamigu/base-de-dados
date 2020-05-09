@@ -1,12 +1,11 @@
-
-CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Enail ,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,.CodPostal.))
+CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Enail ,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,CodPostal))
 
 PRODUTO (_IdProduto_,Nome,Custo,IdEmpresa,Quantidade)
 
 DEPARTAMENTO (_NomeDepartamento_,Gestor)
 
 FUNCIONARIO(_IdFuncionario_,Nome,NumCC,DataNascimento,Email?,
-Departamento,Supervisor?,Salario,.HorasTradalho.,Gere?)
+Departamento,Supervisor?,Salario,.HorasTradalho.,Gere?,{NumTelemovel})
 
 FORNECEDOR(_IdEmpresa_,NomeEmpresa,IdProduto,NomeProduto,Custo,Comissao)
 
