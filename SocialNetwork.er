@@ -1,8 +1,3 @@
-/*
- dbdia example - ER model for simple "social network"
- Eduardo Marques
- https://github.com/edrdo/dbdia
-*/
 
 CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Enail ,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,.CodPostal.))
 
