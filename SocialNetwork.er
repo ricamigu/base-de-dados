@@ -4,7 +4,7 @@
  https://github.com/edrdo/dbdia
 */
 
-CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Enail ,{NumTelefone},Morada(Rua,NumRua,Andar?,Localidade,.CodPostal.))
+CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Enail ,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,.CodPostal.))
 
 PRODUTO (_IdProduto_,Nome,Custo,IdEmpresa,Quantidade)
 
@@ -17,9 +17,9 @@ FORNECEDOR(_IdEmpresa_,NomeEmpresa,IdProduto,NomeProduto,Custo,Comissao)
 
 ENCOMENDAS(_NumCC_,IdEmpresa,IdProduto,Quantidade,Custo)
 
+FORNECEDOR ===M=== <FORNECE> ===N=== PRODUTO
 CLIENTE === M ===<COMPRA>=== N ===PRODUTO
-FORNECEDOR ===M== <FORNECE>===N===PRODUTO
-FUNCIONARIO ---1---<VENDE>===N===PRODUTO
-ENCOMENDAS===N===<ENCOMENDA> ---1--- CLIENTE
 FUNCIONARIO ===1===<SUPERVISIONA(Supervisor,Horas)> ---1--- FUNCIONARIO
 FUNCIONARIO---1--- <TRABALHA_EM> ---1---DEPARTAMENTO
+CLIENTE---1--- <ENCOMENDA> ===N=== ENCOMENDAS
+FUNCIONARIO ---1---<VENDE>===N===PRODUTO
