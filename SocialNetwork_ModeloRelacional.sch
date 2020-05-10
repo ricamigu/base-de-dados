@@ -32,7 +32,6 @@ table FUNCIONARIO
   Departamento varchar --> DEPARTAMENTO.NomeDepartamento,
   Supervisor ? int --> FUNCIONARIO.IdFuncionario,
   Salario int, 
-  HorasTrabalho int,
   Gere ? varchar
 )
 
@@ -63,13 +62,13 @@ table FORNECEDOR
 table NUM_TELEMOVEL_FUNCIONARIO
 (
   _ IdFuncionario _ --> FUNCIONARIO.IdFuncionario,
-  _ Num_Telemovel _ int
+  _ NumTelemovel _ int
 )
 
 table NUM_TELEMOVEL_CLIENTE
 (
   _ NumCC _ int --> CLIENTE.NumCC,
-  _ Num_Telemovel _ int 
+  _ NumTelemovel _ int 
 )
 
 table PRODUTO
