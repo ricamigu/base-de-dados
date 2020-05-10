@@ -18,7 +18,7 @@ table CLIENTE
 
 table DEPARTAMENTO
 ( 
-   _ NomeDepartamento _ varchar, 
+   _ NomeDepartamento _ varchar,
    Gestor int --> FUNCIONARIO.IdFuncionario
 )
 
@@ -31,7 +31,7 @@ table FUNCIONARIO
   Email ? varchar,
   Departamento varchar --> DEPARTAMENTO.NomeDepartamento,
   Supervisor ? int --> FUNCIONARIO.IdFuncionario,
-  Salario int, 
+  HorasTrabalho int, 
   Gere ? varchar
 )
 
