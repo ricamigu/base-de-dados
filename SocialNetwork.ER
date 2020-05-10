@@ -1,11 +1,11 @@
-CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Enail ,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,CodPostal))
+CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Email?,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,CodPostal))
 
 PRODUTO (_IdProduto_,Nome,Custo,IdEmpresa,Quantidade)
 
-DEPARTAMENTO (_NomeDepartamento_,Gestor)
+DEPARTAMENTO (_NomeDepartamento_)
 
 FUNCIONARIO(_IdFuncionario_,Nome,NumCC,DataNascimento,Email?,
-Departamento,Supervisor?,Salario,.HorasTradalho.,Gere?,{NumTelemovel})
+Departamento,Supervisor?,Salario,.HorasTrabalho.,Gere?,{NumTelemovel})
 
 FORNECEDOR(_IdEmpresa_,NomeEmpresa,IdProduto,NomeProduto,Custo,Comissao)
 
@@ -13,7 +13,8 @@ ENCOMENDAS(_NumCC_,IdEmpresa,IdProduto,Quantidade,Custo)
 
 FORNECEDOR ===M=== <FORNECE> ===N=== PRODUTO
 CLIENTE === M ===<COMPRA>=== N ===PRODUTO
-FUNCIONARIO ===1===<SUPERVISIONA(Supervisor,Horas)> ---1--- FUNCIONARIO
-FUNCIONARIO---1--- <TRABALHA_EM> ---1---DEPARTAMENTO
+FUNCIONARIO ---1---<SUPERVISIONA> ---N--- FUNCIONARIO
+FUNCIONARIO===N=== <TRABALHA_EM> ---1---DEPARTAMENTO
 CLIENTE---1--- <ENCOMENDA> ===N=== ENCOMENDAS
 FUNCIONARIO ---1---<VENDE>===N===PRODUTO
+FUNCIONARIO ---1---<GERE> ---1--- DEPARTAMENTO
