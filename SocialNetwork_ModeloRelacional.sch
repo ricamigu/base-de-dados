@@ -63,7 +63,7 @@ table FORNECEDOR
 table NUM_TELEMOVEL_FUNCIONARIO
 (
   _ IdFuncionario _ --> FUNCIONARIO.IdFuncionario,
-  _ NumTelemovel _ int
+  _ Num_Telemovel _ int
 )
 
 table NUM_TELEMOVEL_CLIENTE
