@@ -5,7 +5,7 @@ PRODUTO (_IdProduto_,Nome,Custo,IdEmpresa,Quantidade)
 DEPARTAMENTO (_NomeDepartamento_,Gestor)
 
 FUNCIONARIO(_IdFuncionario_,Nome,NumCC,DataNascimento,Email?,
-Departamento,Supervisor?,Salario,.HorasTrabalho.,Gere?,{NumTelemovel})
+Departamento,Supervisor?,.Salario.,HorasTrabalho,Gere?,{NumTelemovel})
 
 FORNECEDOR(_IdEmpresa_,NomeEmpresa,IdProduto,NomeProduto,Custo,Comissao)
 
