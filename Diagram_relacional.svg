@@ -224,9 +224,9 @@
 <polygon fill="none" stroke="#000000" points="8.5,-534.459 8.5,-551.459 165.5,-551.459 165.5,-534.459 8.5,-534.459"/>
 <text text-anchor="start" x="11.5" y="-541.459" font-family="Courier,monospace" text-decoration="underline" font-size="10.00" fill="#000000">IdFuncionario</text>
 <polygon fill="none" stroke="#000000" points="8.5,-517.459 8.5,-534.459 165.5,-534.459 165.5,-517.459 8.5,-517.459"/>
-<text text-anchor="start" x="11.5" y="-524.459" font-family="Courier,monospace" text-decoration="underline" font-size="10.00" fill="#000000">Num_Telemovel</text>
-<text text-anchor="start" x="90.5" y="-524.459" font-family="Courier,monospace" font-size="10.00" fill="#000000"> </text>
-<text text-anchor="start" x="97.5" y="-524.459" font-family="Courier,monospace" font-style="italic" font-size="10.00" fill="#000000">int</text>
+<text text-anchor="start" x="11.5" y="-524.459" font-family="Courier,monospace" text-decoration="underline" font-size="10.00" fill="#000000">NumTelemovel</text>
+<text text-anchor="start" x="84.5" y="-524.459" font-family="Courier,monospace" font-size="10.00" fill="#000000"> </text>
+<text text-anchor="start" x="91.5" y="-524.459" font-family="Courier,monospace" font-style="italic" font-size="10.00" fill="#000000">int</text>
 </g>
 <!-- NUM_TELEMOVEL_FUNCIONARIO&#45;&gt;FUNCIONARIO -->
 <g id="edge8" class="edge">
@@ -245,9 +245,9 @@
 <text text-anchor="start" x="54.5" y="-345.459" font-family="Courier,monospace" font-size="10.00" fill="#000000"> </text>
 <text text-anchor="start" x="61.5" y="-345.459" font-family="Courier,monospace" font-style="italic" font-size="10.00" fill="#000000">int</text>
 <polygon fill="none" stroke="#000000" points="20.5,-321.459 20.5,-338.459 153.5,-338.459 153.5,-321.459 20.5,-321.459"/>
-<text text-anchor="start" x="23.5" y="-328.459" font-family="Courier,monospace" text-decoration="underline" font-size="10.00" fill="#000000">Num_Telemovel</text>
-<text text-anchor="start" x="102.5" y="-328.459" font-family="Courier,monospace" font-size="10.00" fill="#000000"> </text>
-<text text-anchor="start" x="109.5" y="-328.459" font-family="Courier,monospace" font-style="italic" font-size="10.00" fill="#000000">int</text>
+<text text-anchor="start" x="23.5" y="-328.459" font-family="Courier,monospace" text-decoration="underline" font-size="10.00" fill="#000000">NumTelemovel</text>
+<text text-anchor="start" x="96.5" y="-328.459" font-family="Courier,monospace" font-size="10.00" fill="#000000"> </text>
+<text text-anchor="start" x="103.5" y="-328.459" font-family="Courier,monospace" font-style="italic" font-size="10.00" fill="#000000">int</text>
 </g>
 <!-- NUM_TELEMOVEL_CLIENTE&#45;&gt;CLIENTE -->
 <g id="edge9" class="edge">
