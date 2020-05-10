@@ -66,7 +66,7 @@ CREATE TABLE `FORNECEDOR` (
   `IdProduto` int(11) NOT NULL,
   `NomeProduto` varchar(45) NOT NULL,
   `Custo` decimal(3,2) NOT NULL,
-  `Comissão` decimal(3,2) NOT NULL,
+  `Comissao` decimal(3,2) NOT NULL,
   PRIMARY KEY (`IdEmpresa`),
   FOREIGN KEY (`IdProduto`) REFERENCES `PRODUTO`(`IdProduto`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -98,9 +98,9 @@ CREATE TABLE `FUNCIONARIO` (
   `Genero` ENUM('M', 'F') NOT NULL,
   `Departamento` varchar(45) NOT NULL,
   `Supervisor` int(11) DEFAULT NULL,
-  `Salário` int(11) NOT NULL,
   `HorasTrabalho` int(11) NOT NULL,
   `Gere` varchar(45) DEFAULT NULL,
+  `Salario` int(11) NOT NULL,
   PRIMARY KEY (`IdFuncionario`),
   UNIQUE KEY `NumCC` (`NumCC`),
   KEY `Supervisor` (`Supervisor`),
@@ -115,7 +115,7 @@ CREATE TABLE `FUNCIONARIO` (
 
 LOCK TABLES `FUNCIONARIO` WRITE;
 /*!40000 ALTER TABLE `Funcionarios` DISABLE KEYS */;
-INSERT INTO `FUNCIONARIO` (`idFuncionario`,`Nome`,`NumCC`,`DataNascimento`,`Email`,`Genero`,`Departamento`,`Supervisor`,`Salário`,`HorasTrabalho`,`Gere`) VALUES (1246,'Maria Pereira',457891232,'1993-05-28','mariapereira@gmail.com','F','Administraçao',NULL,1000,40,'Administração'),(1235,'Pedro Rodrigues',567890123,'1991-01-16','pedrorodrigues@gmail.com','M','Reposiçao',NULL,1000,40,'Reposiçao'),(1236,'Francisca Costa',467123890,'1992-04-25','franciscacosta@gmail.com','F','Marketing',NULL,600,40,NULL),(1237,'João Moreira',678943215,'1995-02-12','joaomoreira@gmail.com','M','Logistica',678943215,1000,40,NULL),(1238,'Andreia Fonseca',712389045,'1994-11-29','andreiafonseca@gmail.com','F','Administraçao',NULL,600,40,NULL),(1239,'David Gomes',837612389,'1993-09-23','davidgomes@gmail.com','M','Reposiçao',837612389,1000,20,NULL),(1240,'Duarte Ferreira',984672651,'1992-10-13','duarteferreira@gmail.com','M','Financeiro',NULL,1000,20,'Financeiro'),(1241,'Filipa Sousa',263718365,'1994-07-15','filipasousa@gmail.com','F','Marketing',NULL,1000,40,'Marketing '),(1242,'Madalena Faria',647281937,'1995-03-25','madalenafaria@gmail.com','F','Reposiçao',NULL,600,20,NULL),(1243,'Antonio Teixiera',783691274,'1991-08-17','antonioteixeira@gmail.com','M','Logistica',NULL,1000,40,'Logistica'),(1244,'José Vieira',856478239,'1995-05-12','josevieira@gmail.com','M','Reposição',856478239,1000,20,NULL),(1245,'Marco Pinheiro',249475832,'1990-09-23','marcopiheiro@gmail.com','M','Marketing',249475832,1000,20,NULL),(1234,'Ricardo Ribeiro',324175322,'1998-06-14','ricamigu@gmail.com','M','CEO',NULL,50000,10,'CEO');
+INSERT INTO `FUNCIONARIO` (`idFuncionario`,`Nome`,`NumCC`,`DataNascimento`,`Email`,`Genero`,`Departamento`,`Supervisor`,`Salário`,`HorasTrabalho`,`Gere`) VALUES (1246,'Maria Pereira',457891232,'1993-05-28','mariapereira@gmail.com','F','Administraçao',NULL,1000,40,'Administração'),(1235,'Pedro Rodrigues',567890123,'1991-01-16','pedrorodrigues@gmail.com','M','Reposiçao',NULL,1000,40,'Reposiçao'),(1236,'Francisca Costa',467123890,'1992-04-25','franciscacosta@gmail.com','F','Marketing',NULL,600,40,NULL),(1237,'João Moreira',678943215,'1995-02-12','joaomoreira@gmail.com','M','Logistica',678943215,1000,40,NULL),(1238,'Andreia Fonseca',712389045,'1994-11-29','andreiafonseca@gmail.com','F','Administraçao',NULL,600,40,NULL),(1239,'David Gomes',837612389,'1993-09-23','davidgomes@gmail.com','M','Reposiçao',837612389,1000,20,NULL),(1240,'Duarte Ferreira',984672651,'1992-10-13','duarteferreira@gmail.com','M','Financeiro',NULL,1000,20,'Financeiro'),(1241,'Filipa Sousa',263718365,'1994-07-15','filipasousa@gmail.com','F','Marketing',NULL,1000,40,'Marketing '),(1242,'Madalena Faria',647281937,'1995-03-25','madalenafaria@gmail.com','F','Reposiçao',NULL,600,20,NULL),(1243,'Antonio Teixiera',783691274,'1991-08-17','antonioteixeira@gmail.com','M','Logistica',NULL,1000,40,'Logistica'),(1244,'José Vieira',856478239,'1995-05-12','josevieira@gmail.com','M','Reposição',856478239,1000,20,NULL),(1245,'Marco Pinheiro',249475832,'1990-09-23','marcopiheiro@gmail.com','M','Marketing',249475832,1000,20,NULL),(1234,'Ricardo Ribeiro',324175322,'1998-06-14','ricoamigo@gmail.com','M','CEO',NULL,50000,10,'CEO');
 /*!40000 ALTER TABLE `Funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,8 +129,8 @@ DROP TABLE IF EXISTS `NUM_TELEMOVEL_CLIENTE`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `NUM_TELEMOVEL_CLIENTE` (
   `NumCC` int NOT NULL,
-  `Num_Telemovel` int NOT NULL,
-  PRIMARY KEY (`NumCC`,`Num_Telemovel`),
+  `NumTelemovel` int NOT NULL,
+  PRIMARY KEY (`NumCC`,`NumTelemovel`),
   FOREIGN KEY(`NumCC`) REFERENCES `CLIENTE`(`NumCC`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -138,7 +138,7 @@ CREATE TABLE `NUM_TELEMOVEL_CLIENTE` (
 
 LOCK TABLES `NUM_TELEMOVEL_CLIENTE` WRITE;
 /*!40000 ALTER TABLE `NUM_TELEMOVEL_CLIENTE` DISABLE KEYS */;
-INSERT INTO `NUM_TELEMOVEL_CLIENTE` (`NumCC`,`Num_Telemovel`) VALUES (123456789,936334381),(123456789,934568932),(987654320,912345678),(134679240,923457801),(864938256,914539754),(113399556,920053846),(435678097,911232836),(222446688,932153841),(222446688,920102912),(234587652,923846273),(114325678,926475362),(125467890,960843233),(125467890,966675532);
+INSERT INTO `NUM_TELEMOVEL_CLIENTE` (`NumCC`,`NumTelemovel`) VALUES (123456789,936334381),(123456789,934568932),(987654320,912345678),(134679240,923457801),(864938256,914539754),(113399556,920053846),(435678097,911232836),(222446688,932153841),(222446688,920102912),(234587652,923846273),(114325678,926475362),(125467890,960843233),(125467890,966675532);
 /*!40000 ALTER TABLE `NUM_TELEMOVEL_CLIENTE` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,15 +176,15 @@ DROP TABLE IF EXISTS `NUM_TELEMOVEL_FUNCIONARIO`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `NUM_TELEMOVEL_FUNCIONARIO` (
   `IdFuncionario` int(11) NOT NULL,
-  `Num_Telemovel` int(11) NOT NULL,
-  PRIMARY KEY (`IdFuncionario`,`Num_Telemovel`),
+  `NumTelemovel` int(11) NOT NULL,
+  PRIMARY KEY (`IdFuncionario`,`NumTelemovel`),
   FOREIGN KEY(`IdFuncionario`) REFERENCES `FUNCIONARIO`(`IdFuncionario`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `NUM_TELEMOVEL_FUNCIONARIO` WRITE;
 /*!40000 ALTER TABLE `NUM_TELEFONE` DISABLE KEYS */;
-INSERT INTO `NUM_TELEMOVEL_FUNCIONARIO` (`IdFuncionario`,`Num_Telemovel`) VALUES (1234,969142369),(1235,229487645),(1235,229548976),(1236,222436580),(1237,225489002),(1238,223489987),(1239,229001035),(1240,220548003),(1241,220545469),(1242,220323048),(1243,228254452),(1244,226008547),(1245,224487789);
+INSERT INTO `NUM_TELEMOVEL_FUNCIONARIO` (`IdFuncionario`,`NumTelemovel`) VALUES (1234,969142369),(1235,229487645),(1235,229548976),(1236,222436580),(1237,225489002),(1238,223489987),(1239,229001035),(1240,220548003),(1241,220545469),(1242,220323048),(1243,228254452),(1244,226008547),(1245,224487789);
 /*!40000 ALTER TABLE `NUM_TELEFONE` ENABLE KEYS */;
 UNLOCK TABLES;
 
