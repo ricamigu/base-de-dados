@@ -1,4 +1,4 @@
-CLIENTE ( _ NumCC_ , Nome ,DataNascimento ,Genero ,Email?,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,CodPostal))
+CLIENTE ( _NumCC_ , Nome ,DataNascimento ,Genero ,Email?,{NumTelemovel},Morada(Rua,NumRua,Andar?,Localidade,CodPostal))
 
 PRODUTO (_IdProduto_,Nome,Custo,IdEmpresa,Quantidade)
 
